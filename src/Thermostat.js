@@ -24,14 +24,19 @@ Thermostat.prototype.lower = function() {
   };
 };
 
+Thermostat.prototype.resetTemperature = function() {
+  this.temperature = 20;
+};
+
 Thermostat.prototype.powerSaveSwitch = function() {
   if(this.powerSavingMode === true) {
     this.powerSavingMode = false;
   } else {
+    if(this.temperature > this.maxTempSaveOn) {
+      this.temperature = 25;
+    }
     this.powerSavingMode = true;
   };
 };
 
-Thermostat.prototype.resetTemperature = function() {
-  this.temperature = 20;
-};
+
