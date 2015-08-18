@@ -27,12 +27,21 @@ describe('Thermostat', function() {
     expect(thermostat.temperature).toEqual(thermostat.minTemperature);
   });
 
-  it('should not increase above 25 with power saving mode on', function() {
+  it('should not increase above maximum temperature with power saving mode on', function() {
     difference = thermostat.maxTempSaveOn - thermostat.temperature + 1;
     for(i=0; i<difference; i++) {
       thermostat.raise();
     };
     expect(thermostat.temperature).toEqual(thermostat.maxTempSaveOn);
+  });
+
+  it('should not increase above maximum temperature with power saving mode off', function() {
+    difference = thermostat.maxTempSaveOff - thermostat.temperature + 1;
+    thermostat.powerSaveSwitch();
+    for(i=0; i<difference; i++) {
+      thermostat.raise();
+    };
+    expect(thermostat.temperature).toEqual(thermostat.maxTempSaveOff);
   });
 
   it('should have power saving mode on by default', function() {
@@ -50,5 +59,10 @@ describe('Thermostat', function() {
     expect(thermostat.powerSavingMode).toEqual(true);
   });
 
+  it('should be able to reset the temperature to 20', function() {
+    thermostat.raise();
+    thermostat.resetTemperature();
+    expect(thermostat.temperature).toEqual(20);
+  });
 
 });
