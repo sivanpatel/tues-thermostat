@@ -28,6 +28,7 @@ describe('Thermostat', function() {
   });
 
   it('should not increase above maximum temperature with power saving mode on', function() {
+    thermostat.powerSaveSwitchOn();
     difference = thermostat.maxTempSaveOn - thermostat.temperature + 1;
     for(i=0; i<difference; i++) {
       thermostat.raise();
@@ -37,7 +38,7 @@ describe('Thermostat', function() {
 
   it('should not increase above maximum temperature with power saving mode off', function() {
     difference = thermostat.maxTempSaveOff - thermostat.temperature + 1;
-    thermostat.powerSaveSwitch();
+    thermostat.powerSaveSwitchOff();
     for(i=0; i<difference; i++) {
       thermostat.raise();
     };
@@ -49,22 +50,20 @@ describe('Thermostat', function() {
   });
 
   it('should be able to turn power saving mode off', function() {
-    thermostat.powerSaveSwitch();
+    thermostat.powerSaveSwitchOff();
     expect(thermostat.powerSavingMode).toEqual(false);
   });
 
   it('should be able to turn power saving mode on', function() {
-    thermostat.powerSaveSwitch();
-    thermostat.powerSaveSwitch();
     expect(thermostat.powerSavingMode).toEqual(true);
   });
 
   it('should reset to 25 when turning power saving mode on if the temperature is above 25', function() {
-    thermostat.powerSaveSwitch();
+    thermostat.powerSaveSwitchOff();
     for(i=0; i<7; i++){
       thermostat.raise();
     };
-    thermostat.powerSaveSwitch();
+    thermostat.powerSaveSwitchOn();
     expect(thermostat.temperature).toEqual(25);
   });
 
@@ -78,25 +77,22 @@ describe('Thermostat', function() {
     for(i=0; i<3; i++){
       thermostat.lower();
     };
-    thermostat.colourUpdate();
-    expect(thermostat.displayColour).toEqual('green');
+    expect(thermostat.colourUpdate()).toEqual('green');
   });
 
   it('should return yellow if the temperature is below 25', function() {
     for(i=0; i<1; i++){
       thermostat.raise();
     };
-    thermostat.colourUpdate();
-    expect(thermostat.displayColour).toEqual('yellow');
+    expect(thermostat.colourUpdate()).toEqual('yellow');
   });
 
     it('should return red if the temperature is above 25', function() {
-    thermostat.powerSaveSwitch();
+    thermostat.powerSaveSwitchOff();
     for(i=0; i<10; i++){
       thermostat.raise();
     };
-    thermostat.colourUpdate();
-    expect(thermostat.displayColour).toEqual('red');
+    expect(thermostat.colourUpdate()).toEqual('red');
   });
 
 });
