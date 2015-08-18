@@ -4,6 +4,7 @@ function Thermostat() {
     this.maxTempSaveOn = 25;
     this.maxTempSaveOff = 32;
     this.powerSavingMode = true;
+    this.displayColour = "yellow";
 };
 
 Thermostat.prototype.raise = function() {
@@ -39,4 +40,13 @@ Thermostat.prototype.powerSaveSwitch = function() {
   };
 };
 
+Thermostat.prototype.colourUpdate = function() {
+  if(this.temperature < 18) {
+    this.displayColour = "green";
+  } else if(this.temperature < 25) {
+    this.displayColour = "yellow";
+  } else {
+    this.displayColour = "red";
+  }
+};
 
