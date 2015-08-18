@@ -2,7 +2,7 @@ thermostat = new Thermostat();
 
 //JQUERY
 
-var temperature = document.getElementById('temperature');
+var temperature = $('#temperature')[0];
 ShowTemperature = function() {
   temperature.innerHTML = thermostat.temperature;
 };
@@ -16,20 +16,20 @@ $( document ).ready(function() {
     TemperatureColour();
   })
   $('#up').click(function() {
-    ShowTemperature();
     thermostat.raise();
+    ShowTemperature();
     TemperatureColour();
   });
 
   $('#down').click(function() {
-    ShowTemperature();
     thermostat.lower();
+    ShowTemperature();
     TemperatureColour();
   });
 
   $('#reset').click(function() {
-    ShowTemperature();
     thermostat.resetTemperature();
+    ShowTemperature();
     TemperatureColour();
   })
 
@@ -45,7 +45,8 @@ $( document ).ready(function() {
 });
 
 
-// JAVASCRIPT STUFF
+// JAVASCRIPT
+
 // var temperature = document.getElementById('temperature');
 // TemperatureColour = function() {
 //   temperature.innerHTML = thermostat.temperature;
