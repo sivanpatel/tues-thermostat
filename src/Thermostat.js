@@ -7,14 +7,10 @@ function Thermostat() {
 };
 
 Thermostat.prototype.raise = function() {
-  if(this.powerSavingMode === true) {
-    if(this.temperature < this.maxTempSaveOn){
-      this.temperature++;
-    };
-  } else {
-    if(this.temperature < this.maxTempSaveOff){
-      this.temperature++;
-    };
+  if(this.powerSavingMode === true && this.temperature < this.maxTempSaveOn) {
+    this.temperature++;
+  } else if (this.powerSavingMode === false && this.temperature < this.maxTempSaveOff){
+    this.temperature++;
   };
 };
 
