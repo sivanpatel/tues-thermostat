@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--   <style>
-    body {background-color:lightblue}
-  </style> -->
+  <link rel="stylesheet" href="public/css/normalize.css">
+  <link rel="stylesheet" href="public/css/thermostat.css">
   <link
   <script src="src/jquery.js"></script>
   <meta charset="utf-8">
@@ -12,17 +11,36 @@
 <!--   <link rel="stylesheet" href="lib/jasmine-2.3.4/jasmine.css">
  -->
   <!-- include source files here... -->
+  <script src="jquery-2.1.4.min.js"</script>
   <script src="src/Thermostat.js"></script>
 
 </head>
 
 <body>
-  <section><span class="temperature"></span>° C</section>
-  <button type="button">↑</button>
-  <button type="button">↓</button>
-  <button type="button">Reset</button>
-  <input type="checkbox" checked>Power saving mode</button>
-  <script src="src/app_jquery.js"></script>
+  <section><span class="temperature">°C</span>°C</section>
+  <!-- <button class="up">↑</button> -->
+  <button class="up">↑</button>
+  <button class="down">↓</button><br><br>
+  <button class="reset">&#8635</button>
+  <br>
+  <br>
+  <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+</div>
   <script src="src/Thermostat.js"></script>
+  <script src="src/app_jquery.js"></script>
+  <br>
+  <br>
+    <span class="location_temp">°C</span>
+    <span class="location_weather"></span>
+  <br>
+  <input type="text" name="city" class="city">
+  <input type="submit" name="search" class="search">
+
+
 </body>
 </html>
