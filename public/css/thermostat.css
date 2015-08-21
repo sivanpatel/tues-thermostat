@@ -2,14 +2,23 @@ html {
     height: 100%;
     background: url("../background.jpg") no-repeat center center fixed;
     background-size: cover ;
+    text-align: center;
+}
+body {
+  position: relative;
+  top: 40%;
+  transform: translateY(-60%);
 }
 
-.temperature{}
+.temperature{
+  font-size: 80px
+}
+
 
    .up {
-    color: #6496c8;
+    color: #F0F757;
     background: rgba(0,0,0,0);
-    border: solid 2px #6496c8;
+    border: solid 2px #F0F757;
     width: 140px;
     padding: 15px 45px;
     font-weight: bold;
@@ -17,9 +26,9 @@ html {
   }
 
   .down {
-   color: #6496c8;
+   color: #F0F757;
    background: rgba(0,0,0,0);
-   border: solid 2px #6496c8;
+   border: solid 2px #F0F757;
    width: 140px;
    padding: 15px 45px;
    font-weight: bold;
@@ -27,21 +36,20 @@ html {
  }
 
  .reset {
-  color: #6496c8;
+  color: #F0F757;
   background: rgba(0,0,0,0);
-  border: solid 2px #6496c8;
+  border: solid 2px #F0F757;
   width: 284px;
   padding: 15px 45px;
   font-weight: bold;
   font-size: 30px;
 }
 
-button:focus{outline:none}
-.down{}
 
   .onoffswitch {
     position: relative; width: 90px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    margin:auto;
 }
 .onoffswitch-checkbox {
     display: none;
@@ -61,8 +69,8 @@ button:focus{outline:none}
 }
 .onoffswitch-inner:before {
     content: "ON";
-    padding-left: 10px;
-    background-color: #6496c8; color: #FFFFFF;
+    padding-right: 40px;
+    background-color: #F0F757; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
     content: "OFF";
